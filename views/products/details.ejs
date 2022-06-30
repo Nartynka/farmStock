@@ -1,0 +1,18 @@
+<%- include('../partials/head') %>%> %>
+<div class="p-5 mb-4 bg-light rounded-3">
+   <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold text-break">
+         <%= product.name %>
+      </h1>
+      <h2>Price: <%= product.price %>$</h2>
+      <p class="col-md-8 fs-4">Category: <a href="/products?category=<%= product.category %>"><%= product.category %></a>
+      <p class="col-md-8 fs-4">Farm: <a href="/farms/<%= product.farm._id %>"><%= product.farm.name %></a>
+      </p>
+      <a href="/products/<%= product._id %>/edit" class="btn btn-outline-primary btn-lg" type="button">Edit</a>
+      <form action="/products/<%= product._id %>?_method=DELETE" method="POST" style="display: inline">
+         <button class="btn btn-outline-danger btn-lg" type="submit">Delete</button>
+      </form>
+   </div>
+</div>
+
+<%- include('../partials/footer') %>

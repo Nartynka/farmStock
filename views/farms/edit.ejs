@@ -1,0 +1,23 @@
+<%- include('../partials/head') %>%>
+<div class="p-5 mb-4 bg-light rounded-3">
+   <div class="container">
+      <h1 class="display-5 fw-bold">Edit</h1>
+      <div class="row row-cols-lg-2 row-cols-sm-1">
+         <form action="/farms/<%= farm._id %>?_method=PUT" method="POST">
+
+            <label for="name">Name</label>
+            <input name="name" type="text" id="name" value="<%= farm.name %>" class="form-control mb-3" required>
+
+            <label for="city">City</label>
+            <input name="city" type="text" id="city" value="<%= farm.city %>" class="form-control mb-3" pattern="[A-z0-9\sÀ-ž!()]+" required>
+
+            <label for="email">Email</label>
+            <input name="email" type="email" id="email" value="<%= farm.email %>" class="form-control mb-3" required>
+
+            <button class="btn btn-outline-primary btn-lg" type="submit">Submit</button>
+         </form>
+      </div>
+   </div>
+</div>
+
+<%- include('../partials/footer') %>

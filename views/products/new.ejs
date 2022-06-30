@@ -1,0 +1,35 @@
+<%- include('../partials/head') %>%>%>
+<div class="p-5 mb-4 bg-light rounded-3">
+   <div class="container">
+      <h1 class="display-5 fw-bold">Create new products</h1>
+      <div class="row row-cols-lg-2 row-cols-sm-1">
+         <form action="/farms/<%=id%>/products" method="POST">
+
+            <label for="name">Name</label>
+            <input name="name" type="text" id="name" class="form-control mb-3" pattern="[A-z0-9\sÀ-ž!()]+" required>
+
+            <label for="price">Price</label>
+            <div class="input-group mb-3">
+               <input list="priceList" name="price" type="number" class="form-control" id="price" step=0.01 min=0 required>
+               <span class="input-group-text">$</span>
+            </div>
+
+            <datalist id="priceList">
+               <option value="1">
+               <option value="2.25">
+               <option value="5.00">
+            </datalist>
+            <label for="category">Category</label>
+            <select name="category" id="category" class="form-select mb-3">
+               <% for(let cat of categories){%>
+               <option value="<%=cat%>"><%=cat%></option>
+               <% } %>
+            </select>
+
+            <button class="btn btn-outline-primary btn-lg" type="submit">Submit</button>
+         </form>
+      </div>
+   </div>
+</div>
+
+<%- include('../partials/footer') %>
